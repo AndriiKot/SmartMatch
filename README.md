@@ -10,6 +10,7 @@
       <th height=33 width=100>Hugging Face</th>
       <th height=33 width=100>PyTorch</th>
       <th height=33 width=100>NumPy</th>
+      <th height=33 width=100>sciKit-learn</th>
     </tr>
   </thead>
   <tbody>
@@ -40,6 +41,12 @@
         <a href=https://numpy.org/>
           <img src=https://github.com/AndriiKot/SmartMatch/blob/vectors/technologies/icons/numpy.svg
           alt="NumPy">
+        </a>
+      </td>
+      <td height=100 width=100></td>
+        <a href=https://scikit-learn.org/>
+          <img src=https://github.com/AndriiKot/SmartMatch/blob/vectors/technologies/icons/scikit-learn.svg
+          alt="sciKit-learn">
         </a>
       </td>
     </tr>
