@@ -3,7 +3,7 @@ import glob
 
 data_folder = 'data/'
 files_source = "*.txt"
-max_words = 2
+max_words = 200
 
 songs = {}
 for filepath in glob.glob(os.path.join(data_folder, files_source)):
@@ -17,4 +17,3 @@ for song_name, text in songs.items():
     processed_text = ' '.join(text.split()[:max_words])
     processed_songs[song_name] = processed_text
 
-print(processed_songs)
