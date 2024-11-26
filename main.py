@@ -10,6 +10,7 @@ files_source = "*.txt"
 MAX_WORDS = 200
 
 songs = {}
+
 for filepath in glob.glob(os.path.join(data_folder, files_source)):
     with open(filepath, 'r', encoding='utf-8') as f:
         text = f.read()
@@ -20,14 +21,21 @@ model_name = "distilbert-base-uncased"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModel.from_pretrained(model_name)
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(device)
+
 def get_vector(text):
-    inputs = tokenizer(text, return_tensors='pt', truncation=True, max_length=MAX_WORDS, padding='max_length')
+    words = text.split()
+    limited_words = words[:MAX_WORDS]
+    limited_text = ' '.join(limited_words)
+    inputs = tokenizer(limited_text, return_tensors='pt', truncation=True, padding='max_length')
+
     with torch.no_grad():
         outputs = model(**inputs)
-    return outputs.last_hidden_state.mean(dim=1).numpy()
+
+    return outputs.last_hidden_state.mean(dim=1).squeeze().cpu().numpy()
 
 vectors = []
-
 song_names = list(songs.keys())
 
 for song_name in song_names:
@@ -36,4 +44,14 @@ for song_name in song_names:
 
 vectors = np.array(vectors)
 
-print(cosine_similarity)
+def find_similar_song(user_input):
+    user_vector = get_vector(user_input)
+    similarities = cosine_similarity([user_vector], vectors)
+    most_similar_index = np.argmax(similarities)
+    most_similar_song = song_names[most_similar_index]
+    similarity_score = similarities[0][most_similar_index]
+    return most_similar_song, similarity_score
+
+user_input = input("Please enter the text you want to find a similar song for: ")
+similar_song_name, similarity_score = find_similar_song(user_input)
+print(f"The most similar song is: {similar_song_name} with a similarity score of {similarity_score:.4f}")
