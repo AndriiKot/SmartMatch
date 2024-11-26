@@ -34,3 +34,4 @@ for song_name in song_names:
     vectors.append(song_vector)
 
 vectors = np.array(vectors)
+print(vectors)
