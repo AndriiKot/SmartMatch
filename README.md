@@ -43,7 +43,7 @@
           alt="NumPy">
         </a>
       </td>
-      <td height=100 width=100></td>
+      <td  width=200></td>
         <a href=https://scikit-learn.org/>
           <img src="https://github.com/AndriiKot/SmartMatch/blob/vectors/technologies/icons/scikit-learn.svg" alt="sciKit-learn">
         </a>
