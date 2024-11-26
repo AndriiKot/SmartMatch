@@ -7,6 +7,7 @@
     <tr>
       <th height=33 width=100>Python</th>
       <th height=33 width=100>Jupyter</th>
+      <th height=33 width=100>Hugging Face</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,12 @@
       <td height=100 width=100>
         <a href=https://jupyter.org/>
           <img src=https://github.com/AndriiKot/SmartMatch/blob/main/technologies/icons/jupyter.svg alt=Jupyter>
+        </a>
+      </td>
+            <td height=100 width=100>
+        <a href=https://huggingface.co/>
+          <img src=https://github.com/AndriiKot/SmartMatch/blob/main/technologies/icons/huggingface.svg
+          alt="Hugging Face">
         </a>
       </td>
     </tr>
