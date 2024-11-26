@@ -3,6 +3,7 @@ import glob
 from transformers import AutoTokenizer, AutoModel
 import torch
 import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 
 data_folder = 'data/'
 files_source = "*.txt"
@@ -34,3 +35,5 @@ for song_name in song_names:
     vectors.append(song_vector)
 
 vectors = np.array(vectors)
+
+print(cosine_similarity)
