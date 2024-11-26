@@ -1,6 +1,8 @@
 import os
 import glob
 from transformers import AutoTokenizer, AutoModel
+import torch
+import numpy as np
 
 data_folder = 'data/'
 files_source = "*.txt"
@@ -16,3 +18,6 @@ model_name = "distilbert-base-uncased"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModel.from_pretrained(model_name)
 
+
+print(torch)
+print(np)
