@@ -43,3 +43,15 @@ for song_name in song_names:
     vectors.append(song_vector)
 
 vectors = np.array(vectors)
+
+def find_similar_song(user_input):
+    user_vector = get_vector(user_input)
+    similarities = cosine_similarity([user_vector], vectors)
+    most_similar_index = np.argmax(similarities)
+    most_similar_song = song_names[most_similar_index]
+    similarity_score = similarities[0][most_similar_index]
+    return most_similar_song, similarity_score
+
+user_input = "I want a song about love and heartbreak"
+similar_song_name, similarity_score = find_similar_song(user_input)
+print(f"The most similar song is: {similar_song_name} with a similarity score of {similarity_score:.4f}")
