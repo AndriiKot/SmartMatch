@@ -24,7 +24,7 @@
       </td>
             <td height=100 width=100>
         <a href=https://huggingface.co/>
-          <img src=https://github.com/AndriiKot/SmartMatch/blob/main/technologies/icons/huggingface.svg
+          <img src=https://github.com/AndriiKot/SmartMatch/blob/vectors/technologies/icons/huggingface.svg
           alt="Hugging Face">
         </a>
       </td>
