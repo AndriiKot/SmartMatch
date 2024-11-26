@@ -10,5 +10,3 @@ for filepath in glob.glob(os.path.join(data_folder, '*.txt')):
         song_name = os.path.basename(filepath)
         songs[song_name] = text
 
-print("\n\nFile reading completed. Found songs:", list(songs.keys()), "\n\n")
-print(songs)
