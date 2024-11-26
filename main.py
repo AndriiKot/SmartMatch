@@ -25,15 +25,13 @@ def get_vector(text):
         outputs = model(**inputs)
     return outputs.last_hidden_state.mean(dim=1).numpy()
 
+vectors = []
+
 song_names = list(songs.keys())
 
-first_song_name = song_names[0]
-first_song_text = songs[first_song_name]
+for song_name in song_names:
+    song_vector = get_vector(songs[song_name])
+    vectors.append(song_vector)
 
-print(f"Название первой песни: {first_song_name}")
-print(f"Текст первой песни: {first_song_text}")
-
-# Получаем вектор первой песни
-first_song_vector = get_vector(first_song_text)
-print(first_song_vector)
-
+vectors = np.array(vectors)
+print(vectors)
