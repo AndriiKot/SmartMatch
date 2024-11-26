@@ -21,7 +21,10 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModel.from_pretrained(model_name)
 
 def get_vector(text):
-    inputs = tokenizer(text, return_tensors='pt', truncation=True, max_length=MAX_WORDS, padding='max_length')
+    words = text.split()
+    limited_words = words[:MAX_WORDS]
+    limited_text = ' '.join(limited_words)
+    inputs = tokenizer(limited_text, return_tensors='pt', truncation=True, padding='max_length')
     with torch.no_grad():
         outputs = model(**inputs)
     return outputs.last_hidden_state.mean(dim=1).numpy()
