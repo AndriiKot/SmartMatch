@@ -10,3 +10,7 @@ for filepath in glob.glob(os.path.join(data_folder, '*.txt')):
         song_name = os.path.basename(filepath)
         songs[song_name] = text
 
+processed_songs = {}
+for song_name, text in songs.items():
+    print(f"Обработка песни: {song_name}")
+    print(f"Текст песни: {text}")
