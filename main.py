@@ -21,14 +21,19 @@ model_name = "distilbert-base-uncased"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModel.from_pretrained(model_name)
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(device)
+
 def get_vector(text):
     words = text.split()
     limited_words = words[:MAX_WORDS]
     limited_text = ' '.join(limited_words)
     inputs = tokenizer(limited_text, return_tensors='pt', truncation=True, padding='max_length')
+
     with torch.no_grad():
         outputs = model(**inputs)
-    return outputs.last_hidden_state.mean(dim=1).squeeze.numpy()
+
+    return outputs.last_hidden_state.mean(dim=1).squeeze().cpu().numpy()
 
 vectors = []
 song_names = list(songs.keys())
@@ -38,7 +43,3 @@ for song_name in song_names:
     vectors.append(song_vector)
 
 vectors = np.array(vectors)
-
-def find_similar_song(user_input):
-    print(user_input)
-
