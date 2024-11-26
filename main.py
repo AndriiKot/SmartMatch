@@ -1,9 +1,12 @@
 import os
 import glob
 from transformers import AutoTokenizer, AutoModel
+import torch
+import numpy as np
 
 data_folder = 'data/'
 files_source = "*.txt"
+MAX_WORDS = 200
 
 songs = {}
 for filepath in glob.glob(os.path.join(data_folder, files_source)):
@@ -16,3 +19,18 @@ model_name = "distilbert-base-uncased"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModel.from_pretrained(model_name)
 
+def get_vector(text):
+    inputs = tokenizer(text, return_tensors='pt', truncation=True, max_length=MAX_WORDS, padding='max_length')
+    with torch.no_grad():
+        outputs = model(**inputs)
+    return outputs.last_hidden_state.mean(dim=1).numpy()
+
+vectors = []
+
+song_names = list(songs.keys())
+
+for song_name in song_names:
+    song_vector = get_vector(songs[song_name])
+    vectors.append(song_vector)
+
+vectors = np.array(vectors)
