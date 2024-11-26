@@ -10,6 +10,7 @@ files_source = "*.txt"
 MAX_WORDS = 200
 
 songs = {}
+
 for filepath in glob.glob(os.path.join(data_folder, files_source)):
     with open(filepath, 'r', encoding='utf-8') as f:
         text = f.read()
@@ -27,10 +28,9 @@ def get_vector(text):
     inputs = tokenizer(limited_text, return_tensors='pt', truncation=True, padding='max_length')
     with torch.no_grad():
         outputs = model(**inputs)
-    return outputs.last_hidden_state.mean(dim=1).numpy()
+    return outputs.last_hidden_state.mean(dim=1).squeeze.numpy()
 
 vectors = []
-
 song_names = list(songs.keys())
 
 for song_name in song_names:
@@ -39,4 +39,6 @@ for song_name in song_names:
 
 vectors = np.array(vectors)
 
-print(cosine_similarity)
+def find_similar_song(user_input):
+    print(user_input)
+
