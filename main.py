@@ -52,6 +52,6 @@ def find_similar_song(user_input):
     similarity_score = similarities[0][most_similar_index]
     return most_similar_song, similarity_score
 
-user_input = "I want a song about love and heartbreak"
+user_input = input("Please enter the text you want to find a similar song for: ")
 similar_song_name, similarity_score = find_similar_song(user_input)
 print(f"The most similar song is: {similar_song_name} with a similarity score of {similarity_score:.4f}")
