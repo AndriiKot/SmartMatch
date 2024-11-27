@@ -1,5 +1,7 @@
 import os
 
+path = '../data/'
+
 def normalize_content(content):
     return ''.join(content.split()).lower()
 
@@ -22,4 +24,4 @@ def check_unique_contents(directory):
     if len(content_dict) == len(os.listdir(directory)):
         print("Check complete, all files are unique.")
 
-check_unique_contents('../data/')
+check_unique_contents(path)
