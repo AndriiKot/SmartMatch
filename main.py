@@ -3,19 +3,8 @@ import torch
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from utils.parse_arguments import parse_arguments
-from utils import load_texts
+from utils import load_texts, get_vector
 
-
-def get_vector(model, tokenizer, text, max_words):
-    words = text.split()
-    limited_words = words[:max_words]
-    limited_text = ' '.join(limited_words)
-    inputs = tokenizer(limited_text, return_tensors='pt', truncation=True, padding='max_length')
-
-    with torch.no_grad():
-        outputs = model(**inputs)
-
-    return outputs.last_hidden_state.mean(dim=1).squeeze().cpu().numpy()
 
 def find_similar_text(user_input, vectors, text_names, model, tokenizer, max_words):
     user_vector = get_vector(model, tokenizer, user_input, max_words)
@@ -25,7 +14,6 @@ def find_similar_text(user_input, vectors, text_names, model, tokenizer, max_wor
     similarity_score = similarities[0][most_similar_index]
     return most_similar_text, similarity_score
 
-# Main code execution
 args = parse_arguments()
 texts = load_texts(args.data_folder, args.files_source)
 
