@@ -1,10 +1,6 @@
 # SmartMatch
 
-This project is designed to find the most similar
-song based on the text provided by the user.
-It utilizes a transformer model from the `transformers`
-library for vectorizing song lyrics and computes
-similarity using cosine similarity.
+This project is designed to find the most similar song based on the text provided by the user. It utilizes a transformer model from the `transformers` library for vectorizing song lyrics and computes similarity using cosine similarity.
 
 ## Technologies:
 
@@ -77,26 +73,31 @@ To run the program, you need to install the following libraries:
 - `torch`
 - `scikit-learn`
 
+> **Note:** If you are running the code outside of a Jupyter Notebook, it is recommended to use Python version 3.10 or higher.
+
 ## Installation
 
-To install the necessary libraries, run the following command in your Jupyter Notebook:
+To install the necessary libraries, run the following command in your terminal:
 
-```python
-!pip install transformers torch scikit-learn
+```bash
+pip install transformers torch scikit-learn
 ```
 
 ## Usage
 
 1. **Data Preparation:**
-   - Create a folder named `data` in the directory where your Jupyter Notebook is located.
+   - Create a folder named `data` in the directory where your script is located.
    - Place text files containing the song lyrics in this folder. Make sure all files have a `.txt` extension.
 
 2. **Running the Program:**
-   - Open your Jupyter Notebook.
-   - Copy and paste the provided program code into the cells of your notebook.
-   - Execute the cells in the following order:
-     - A cell for importing libraries and loading the song lyrics.
-     - A cell for inputting the user text and searching for a similar song.
+   - If you are using Jupyter Notebook, open your notebook and proceed as described below.
+   - If you are not using Jupyter, save the following initial code to a file named `main.py` and run it using the command:
+
+   ```bash
+   py -3.11 main.py
+   ```
+
+   - Copy and paste the provided program code into your script.
 
 3. **Text Input:**
    - After running the code, enter the text for which you want to find a similar song when prompted.
