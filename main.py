@@ -1,19 +1,10 @@
-import os
-import glob
 from transformers import AutoTokenizer, AutoModel
 import torch
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from utils.parse_arguments import parse_arguments
+from utils import load_texts
 
-def load_texts(data_folder, files_source):
-    texts = {}
-    for filepath in glob.glob(os.path.join(data_folder, files_source)):
-        with open(filepath, 'r', encoding='utf-8') as f:
-            text = f.read()
-            text_name = os.path.basename(filepath)
-            texts[text_name] = text
-    return texts
 
 def get_vector(model, tokenizer, text, max_words):
     words = text.split()
