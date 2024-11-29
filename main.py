@@ -6,16 +6,11 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from utils.parse_arguments import parse_arguments  # Импортируем нужную функцию
 
-# Парсим аргументы
 args = parse_arguments()
-
-data_folder = args.data_folder
-files_source = args.files_source
-MAX_WORDS = args.max_words
 
 songs = {}
 
-for filepath in glob.glob(os.path.join(data_folder, files_source)):
+for filepath in glob.glob(os.path.join(args.data_folder, args.files_source)):
     with open(filepath, 'r', encoding='utf-8') as f:
         text = f.read()
         song_name = os.path.basename(filepath)
@@ -30,7 +25,7 @@ model.to(device)
 
 def get_vector(text):
     words = text.split()
-    limited_words = words[:MAX_WORDS]
+    limited_words = words[:args.max_words]
     limited_text = ' '.join(limited_words)
     inputs = tokenizer(limited_text, return_tensors='pt', truncation=True, padding='max_length')
 
