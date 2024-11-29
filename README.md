@@ -94,8 +94,17 @@ pip install transformers torch scikit-learn
    - If you are not using Jupyter, save the following initial code to a file named `main.py` and run it using the command:
 
    ```bash
+   py -3.10 main.py
+   ```
+or
+
+   ```bash
    py -3.11 main.py
    ```
+## Attention
+
+Please note that Python version 3.13 may not work correctly with the 'PyTorch' library!
+
 
    - Copy and paste the provided program code into your script.
 
