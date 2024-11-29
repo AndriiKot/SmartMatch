@@ -4,10 +4,14 @@ from transformers import AutoTokenizer, AutoModel
 import torch
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+from utils.parse_arguments import parse_arguments  # Импортируем нужную функцию
 
-data_folder = 'data/'
-files_source = "*.txt"
-MAX_WORDS = 200
+# Парсим аргументы
+args = parse_arguments()
+
+data_folder = args.data_folder
+files_source = args.files_source
+MAX_WORDS = args.max_words
 
 songs = {}
 
