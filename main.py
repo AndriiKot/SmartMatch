@@ -2,8 +2,8 @@ from transformers import AutoTokenizer, AutoModel
 import torch
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from utils.parse_arguments import parse_arguments
-from utils import load_texts, get_vector
+# from utils.parse_arguments import parse_arguments
+from utils import load_texts, get_vector, parse_arguments
 
 
 def find_similar_text(user_input, vectors, text_names, model, tokenizer, max_words):
