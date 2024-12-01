@@ -44,8 +44,10 @@ This project is designed to find the most similar song based on the text provide
           <img src=https://github.com/AndriiKot/SmartMatch/blob/vectors/technologies/icons/numpy.svg alt="NumPy">
         </a>
       </td>
-      <td height="100" width="100" style="text-align: center; vertical-align: middle;">
-        <h2>Faiss</h2>
+      <td height="100" width="100">
+        <a href=https://faiss.ai/index.html>
+          <h2 style="text-align: center; vertical-align: middle;">Faiss</h2>
+        </a>
       </td>
     </tr>
   </tbody>
