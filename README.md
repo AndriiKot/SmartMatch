@@ -1,4 +1,5 @@
 # SmartMatch
+### Please note that Python version 3.13 may not work correctly with the 'PyTorch' library!
 
 This project is designed to find the most similar song based on the text provided by the user. It utilizes a transformer model from the `transformers` library for vectorizing song lyrics and computes similarity using cosine similarity.
 
@@ -102,8 +103,6 @@ or
    py -3.11 main.py
    ```
 ## Attention
-
-Please note that Python version 3.13 may not work correctly with the 'PyTorch' library!
 
 
    - Copy and paste the provided program code into your script.
