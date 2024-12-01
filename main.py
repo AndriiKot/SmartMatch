@@ -15,12 +15,25 @@ class Vectorizer:
     def get_vector(self, text):
         return get_vector(self.model, self.tokenizer, text, self.max_words)
 
+class SimilarityCalculator:
+    def __init__(self, vectors, text_names):
+        self.vectors = vectors
+        self.text_names = text_names
+
+    def find_similar_text(self, user_vector):
+        similarities = cosine_similarity([user_vector], self.vectors)
+        most_similar_index = np.argmax(similarities)
+        most_similar_text = self.text_names[most_similar_index]
+        similarity_score = similarities[0][most_similar_index]
+        return most_similar_text, similarity_score
+
 class TextSimilarityFinder:
     def __init__(self, model_name, data_folder, files_source, max_words):
         self.texts = load_texts(data_folder, files_source)
         self.vectorizer = Vectorizer(model_name, max_words)
         self.vectors = np.array([self.vectorizer.get_vector(text) for text in self.texts.values()])
         self.text_names = list(self.texts.keys())
+        self.similarity_calculator = SimilarityCalculator(self.vectors, self.text_names)
 
 
     def get_user_input_vector(self):
@@ -34,7 +47,7 @@ class TextSimilarityFinder:
 
     def run(self):
         user_vector = self.get_user_input_vector()
-        similar_text_name, similarity_score = 'some_name', 0.0
+        similar_text_name, similarity_score = self.similarity_calculator.find_similar_text(user_vector)
         print(f"The most similar document is: {similar_text_name} with a similarity score of {similarity_score:.4f}")
 
 if __name__ == "__main__":
