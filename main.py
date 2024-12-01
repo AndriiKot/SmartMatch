@@ -14,15 +14,19 @@ class TextSimilarityFinder:
         self.max_words = max_words
         self.texts = load_texts(data_folder, files_source)
         self.text_names = list(self.texts.keys())
-        self.vectors = np.array([self.get_vector(text) for text in self.texts.values()])
+        # self.vectors = np.array([self.get_vector(text) for text in self.texts.values()])
 
-        print(f"vectors shape: {self.vectors.shape}")
     def get_vector(self, text):
         return get_vector(self.model, self.tokenizer, text, self.max_words)
+
+    def get_user_input_vector(self):
+        user_input = input("Please enter the text you want to find a similar document for: ")
+        # return self.get_vector(user_input)
+
 
 
 if __name__ == "__main__":
     similarity_finder = TextSimilarityFinder(
         model_name="distilbert-base-uncased",
         **{key: vars(parse_arguments())[key] for key in ['data_folder', 'files_source', 'max_words']}
-    )
+    ).get_user_input_vector()
