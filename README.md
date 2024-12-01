@@ -13,7 +13,7 @@ This project is designed to find the most similar song based on the text provide
       <th height=33 width=100>Hugging Face</th>
       <th height=33 width=100>PyTorch</th>
       <th height=33 width=100>NumPy</th>
-      <th height=33 width=100>scikit-learn</th>
+      <th height=33 width=100>Faiss</th>
     </tr>
   </thead>
   <tbody>
@@ -44,9 +44,7 @@ This project is designed to find the most similar song based on the text provide
         </a>
       </td>
       <td height=100 width=100>
-        <a href=https://scikit-learn.org/>
-          <img src="https://github.com/AndriiKot/SmartMatch/blob/vectors/technologies/icons/scikit-learn.svg" alt="sciKit-learn">
-        </a>
+        <h2>Faiss</h2>
       </td>
     </tr>
   </tbody>
