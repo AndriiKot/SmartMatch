@@ -1,5 +1,4 @@
 transformers
 torch
-faiss-cpu
-faiss-gpu 
+faiss-cpu 
 numpy
