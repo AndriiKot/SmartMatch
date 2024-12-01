@@ -13,10 +13,7 @@ class TextSimilarityFinder:
         print("Max words:", max_words)
 
 if __name__ == "__main__":
-    args = parse_arguments()
     similarity_finder = TextSimilarityFinder(
         model_name="distilbert-base-uncased",
-        data_folder=args.data_folder,
-        files_source=args.files_source,
-        max_words=args.max_words
+        **{key: vars(parse_arguments())[key] for key in ['data_folder', 'files_source', 'max_words']}
     )
