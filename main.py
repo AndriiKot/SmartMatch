@@ -1,11 +1,11 @@
-from transformers import AutoTokenizer, AutoModel
-from utils import Vectorizer, SimilarityCalculator, load_texts, parse_arguments
+from utils import Vectorizer, SimilarityCalculator, DataLoader, parse_arguments
 
 class TextSimilarityFinder:
     def __init__(self, model_name, data_folder, files_source, max_words):
-        self.texts = load_texts(data_folder, files_source)
+        self.data_loader = DataLoader(data_folder, files_source)
+        self.texts = self.data_loader.load_texts()
         self.vectorizer = Vectorizer(model_name, max_words)
-        self.vectors = [self.vectorizer.get_vector(text) for text in self.texts.values()]  # Используем обычный список
+        self.vectors = [self.vectorizer.get_vector(text) for text in self.texts.values()]
         self.text_names = list(self.texts.keys())
         self.similarity_calculator = SimilarityCalculator(self.vectors, self.text_names)
 
@@ -21,7 +21,7 @@ class TextSimilarityFinder:
     def run(self):
         user_vector = self.get_user_input_vector()
         if user_vector is None:
-            return  # Если пользовательский вектор не был получен, выходим из функции
+            return
         similar_text_name, similarity_score = self.similarity_calculator.find_similar_text(user_vector)
         print(f"The most similar document is: {similar_text_name} with a similarity score of {similarity_score:.4f}")
 
