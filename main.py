@@ -12,9 +12,13 @@ class TextSimilarityFinder:
         self.model.to(self.device)
 
         self.max_words = max_words
-        self.text_names = list(self.texts.keys())
         self.texts = load_texts(data_folder, files_source)
+        self.text_names = list(self.texts.keys())
         self.vectors = np.array([self.get_vector(text) for text in self.texts.values()])
+
+        print(f"vectors shape: {self.vectors.shape}")
+    def get_vector(self, text):
+        return get_vector(self.model, self.tokenizer, text, self.max_words)
 
 
 if __name__ == "__main__":
