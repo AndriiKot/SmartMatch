@@ -45,7 +45,7 @@ This project is designed to find the most similar song based on the text provide
         </a>
       </td>
       <td height="100" width="100">
-        <a href=https://faiss.ai/index.html>
+        <a href="https://faiss.ai/">
           <h2>Faiss</h2>
         </a>
       </td>
