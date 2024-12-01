@@ -6,11 +6,12 @@ from utils import load_texts, get_vector, parse_arguments
 
 class TextSimilarityFinder:
     def __init__(self, model_name, data_folder, files_source, max_words):
-        print("Initializing TextSimilarityFinder...", self)
-        print("Model name:", model_name)
-        print("Data folder:", data_folder)
-        print("Files source:", files_source)
-        print("Max words:", max_words)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.model = AutoModel.from_pretrained(model_name)
+        print("Loading texts...", self)
+        print("Tokens:", self.tokenizer)
+        print("Model:", self.model)
+
 
 if __name__ == "__main__":
     similarity_finder = TextSimilarityFinder(
