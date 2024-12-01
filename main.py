@@ -1,4 +1,4 @@
-from utils import Vectorizer, SimilarityCalculator, DataLoader, parse_arguments
+from utils import Vectorizer, SimilarityCalculator, DataLoader, ArgumentParser
 
 class TextSimilarityFinder:
     def __init__(self, model_name, data_folder, files_source, max_words):
@@ -28,6 +28,6 @@ class TextSimilarityFinder:
 if __name__ == "__main__":
     similarity_finder = TextSimilarityFinder(
         model_name="distilbert-base-uncased",
-        **{key: vars(parse_arguments())[key] for key in ['data_folder', 'files_source', 'max_words']}
+        **{key: vars(ArgumentParser().parse_arguments())[key] for key in ['data_folder', 'files_source', 'max_words']}
     )
     similarity_finder.run()
