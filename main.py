@@ -10,9 +10,11 @@ class TextSimilarityFinder:
         self.model = AutoModel.from_pretrained(model_name)
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(self.device)
-        print(f"Device: {self.device}")
-        print(f"Model: {model_name}")
 
+        self.max_words = max_words
+        self.text_names = list(self.texts.keys())
+        self.texts = load_texts(data_folder, files_source)
+        self.vectors = np.array([self.get_vector(text) for text in self.texts.values()])
 
 
 if __name__ == "__main__":
