@@ -52,7 +52,7 @@ This project is designed to find the most similar song based on the text provide
       </td>
       <td height=100 width=100>
         <a href=https://docs.docker.com/>
-          <img src=https://github.com/AndriiKot/SmartMatch/blob/vectors/technologies/icons/docker.svg alt=Docker>
+          <img src=https://github.com/AndriiKot/SmartMatch/blob/docker/technologies/icons/docker.svg alt=Docker>
         </a>
       </td>
     </tr>
