@@ -1,5 +1,4 @@
 import torch
-import numpy as np
 from transformers import AutoTokenizer, AutoModel
 
 class Vectorizer:
@@ -19,4 +18,4 @@ class Vectorizer:
         with torch.no_grad():
             outputs = self.model(**inputs)
 
-        return outputs.last_hidden_state.mean(dim=1).squeeze().cpu().numpy()
+        return outputs.last_hidden_state.mean(dim=1).squeeze().cpu()

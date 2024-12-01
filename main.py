@@ -2,20 +2,9 @@ from transformers import AutoTokenizer, AutoModel
 import torch
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from utils import Vectorizer, load_texts,  parse_arguments
+from utils import Vectorizer, SimilarityCalculator, load_texts,  parse_arguments
 
 
-class SimilarityCalculator:
-    def __init__(self, vectors, text_names):
-        self.vectors = vectors
-        self.text_names = text_names
-
-    def find_similar_text(self, user_vector):
-        similarities = cosine_similarity([user_vector], self.vectors)
-        most_similar_index = np.argmax(similarities)
-        most_similar_text = self.text_names[most_similar_index]
-        similarity_score = similarities[0][most_similar_index]
-        return most_similar_text, similarity_score
 
 class TextSimilarityFinder:
     def __init__(self, model_name, data_folder, files_source, max_words):
