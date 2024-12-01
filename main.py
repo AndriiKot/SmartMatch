@@ -8,9 +8,11 @@ class TextSimilarityFinder:
     def __init__(self, model_name, data_folder, files_source, max_words):
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.model = AutoModel.from_pretrained(model_name)
-        print("Loading texts...", self)
-        print("Tokens:", self.tokenizer)
-        print("Model:", self.model)
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.model.to(self.device)
+        print(f"Device: {self.device}")
+        print(f"Model: {model_name}")
+
 
 
 if __name__ == "__main__":
