@@ -1,4 +1,5 @@
 # SmartMatch
+
 ### Please note that Python version 3.13 may not work correctly with the 'PyTorch' library!
 
 This project is designed to find the most similar song based on the text provided by the user. It utilizes a transformer model from the `transformers` library for vectorizing song lyrics and computes similarity using cosine similarity.
@@ -43,7 +44,7 @@ This project is designed to find the most similar song based on the text provide
           <img src=https://github.com/AndriiKot/SmartMatch/blob/vectors/technologies/icons/numpy.svg alt="NumPy">
         </a>
       </td>
-      <td height=100 width=100>
+      <td height="100" width="100" style="text-align: center; vertical-align: middle;">
         <h2>Faiss</h2>
       </td>
     </tr>
@@ -61,6 +62,7 @@ This project is designed to find the most similar song based on the text provide
 ## Functionality
 
 The program allows you to:
+
 - Load song lyrics from text files.
 - Vectorize song lyrics using the `distilbert-base-uncased` model.
 - Find the most similar song based on the user-provided text.
@@ -68,6 +70,7 @@ The program allows you to:
 ## Requirements
 
 To run the program, you need to install the following libraries:
+
 - `transformers`
 - `torch`
 - `scikit-learn`
@@ -85,30 +88,35 @@ pip install transformers torch scikit-learn
 ## Usage
 
 1. **Data Preparation:**
+
    - Create a folder named `data` in the directory where your script is located.
    - Place text files containing the song lyrics in this folder. Make sure all files have a `.txt` extension.
 
 2. **Running the Program:**
+
    - If you are using Jupyter Notebook, open your notebook and proceed as described below.
    - If you are not using Jupyter, save the following initial code to a file named `main.py` and run it using the command:
 
    ```bash
    py -3.10 main.py
    ```
-or
+
+   or
 
    ```bash
    py -3.11 main.py
    ```
+
 ## Attention
 
-
-   - Copy and paste the provided program code into your script.
+- Copy and paste the provided program code into your script.
 
 3. **Text Input:**
+
    - After running the code, enter the text for which you want to find a similar song when prompted.
 
    Example code for text input:
+
    ```python
    user_input = input("Please enter the text you want to find a similar song for: ")
    similar_song_name, similarity_score = find_similar_song(user_input)
