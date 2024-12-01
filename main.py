@@ -2,18 +2,8 @@ from transformers import AutoTokenizer, AutoModel
 import torch
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from utils import load_texts, get_vector, parse_arguments
+from utils import Vectorizer, load_texts,  parse_arguments
 
-class Vectorizer:
-    def __init__(self, model_name, max_words):
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.model = AutoModel.from_pretrained(model_name)
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.model.to(self.device)
-        self.max_words = max_words
-
-    def get_vector(self, text):
-        return get_vector(self.model, self.tokenizer, text, self.max_words)
 
 class SimilarityCalculator:
     def __init__(self, vectors, text_names):
