@@ -35,3 +35,5 @@ if __name__ == "__main__":
         model_name="distilbert-base-uncased",
         **{key: vars(parse_arguments())[key] for key in ['data_folder', 'files_source', 'max_words']}
     )
+    similarity_finder.run()
+
