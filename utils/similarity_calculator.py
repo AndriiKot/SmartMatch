@@ -3,7 +3,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 class SimilarityCalculator:
     def __init__(self, vectors, text_names):
-        self.vectors = vectors
+        self.vectors = np.array(vectors)  # Преобразуем список в массив numpy
         self.text_names = text_names
 
     def find_similar_text(self, user_vector):
