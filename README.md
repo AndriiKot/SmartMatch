@@ -15,6 +15,7 @@ This project is designed to find the most similar song based on the text provide
       <th height=33 width=100>PyTorch</th>
       <th height=33 width=100>NumPy</th>
       <th height=33 width=100>Faiss</th>
+      <th height=33 width=100>Docker</th>
     </tr>
   </thead>
   <tbody>
@@ -47,6 +48,11 @@ This project is designed to find the most similar song based on the text provide
       <td height="100" width="100">
         <a href="https://faiss.ai/">
           <h2>Faiss</h2>
+        </a>
+      </td>
+      <td height=100 width=100>
+        <a href=https://docs.docker.com/>
+          <img src=https://github.com/AndriiKot/SmartMatch/blob/vectors/technologies/icons/docker.svg alt=Docker>
         </a>
       </td>
     </tr>
