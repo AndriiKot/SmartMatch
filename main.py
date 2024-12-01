@@ -1,5 +1,4 @@
 from transformers import AutoTokenizer, AutoModel
-import torch
 from utils import Vectorizer, SimilarityCalculator, load_texts, parse_arguments
 
 class TextSimilarityFinder:
