@@ -29,7 +29,7 @@ class TextSimilarityFinder:
         song = Song(self.data_loader.data_folder, file_name)
         song_title = song.title
         song_content = song.content
-        print(f"Song content: \n{song_content}\n\n")
+        print(f"\n\nSong content: \n\n{song_content}\n")
         print(f"The most similar file is: {file_name} ")
         print(f"The Song is: '{song_title}'")
         print(f"Similarity score: {similarity_score:.4f}")
