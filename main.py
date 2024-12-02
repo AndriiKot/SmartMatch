@@ -1,7 +1,7 @@
 import os
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
-from utils import Vectorizer, SimilarityCalculator, DataLoader, ArgumentParser
+from utils import Vectorizer, SimilarityCalculator, DataLoader, Song, ArgumentParser
 
 class TextSimilarityFinder:
     def __init__(self, model_name, data_folder, files_source, max_words):

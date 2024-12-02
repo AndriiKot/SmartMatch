@@ -13,8 +13,3 @@ class Song:
         print(f"Extracting content for {self.filename}...")
 
 
-song = Song("song.txt")
-
-print(song)
-print(song.title)
-print(song.content)
