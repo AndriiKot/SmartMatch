@@ -26,11 +26,10 @@ class TextSimilarityFinder:
         if user_vector is None:
             return
         file_name, similarity_score = self.similarity_calculator.find_similar_text(user_vector)
-        print(file_name)
         song = Song(self.data_loader.data_folder, file_name)
         song_title = song.extract_title()
         song_content = song.extract_content()
-        print(f"Song content: {song_content}")
+        print(f"Song content: \n{song_content}\n\n")
         print(f"The most similar file is: {file_name} ")
         print(f"The Song is: '{song_title}'")
         print(f"Similarity score: {similarity_score:.4f}")
