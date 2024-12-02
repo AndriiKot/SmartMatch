@@ -15,7 +15,7 @@ This project is designed to find the most similar song based on the text provide
       <th height=33 width=100>PyTorch</th>
       <th height=33 width=100>NumPy</th>
       <th height=33 width=100>Faiss</th>
-      <th height=33 width=100>Docker</th>
+      <th height=33 width=100> <a href=https://developer.hashicorp.com/vagrant/docs>Docker</a></th>
     </tr>
   </thead>
   <tbody>
